@@ -1,3 +1,3 @@
-npm install - install all required dependancies
+`npm install` - install all required dependancies
 
-node . - start the project
+`node index.js` - start the project
