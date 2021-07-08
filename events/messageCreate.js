@@ -1,7 +1,6 @@
 const client = require("../index");
 
 client.on("messageCreate", async (message) => {
-    console.log(message);
     if (
         message.author.bot ||
         !message.guild ||
