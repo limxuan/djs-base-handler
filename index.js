@@ -17,6 +17,6 @@ client.commands = new Collection();
 client.config = require("./config.json");
 
 // Initializing the project
-require("./handler")(client);
+client.on("ready", () => require("./handler")(client));
 
 client.login(client.config.token);
