@@ -1,5 +1,5 @@
 {
-    "token": "your bot token",
+    "token": "your bot's token",
     "prefix": "!",
     "mongooseConnectionString": ""
 }
