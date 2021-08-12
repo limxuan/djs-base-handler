@@ -4,10 +4,13 @@ client.on("interactionCreate", async (interaction) => {
     // Slash Command Handling
     if (interaction.isCommand()) {
         
+        // ephemeral.json => An Array of command names that should be a ephemeral reply.
         const ephlist = require('../../ephemeral.json');
-        let isEph = ephlist.includes(interaction.commandName)
+        let isEph = ephlist.includes(interaction.commandName);
     
-        await interaction.deferReply({ ephemeral: isEph }).catch(() => {});
+        await interaction.deferReply({
+            ephemeral: isEph 
+        }).catch(() => { });
 
         const cmd = client.slashCommands.get(interaction.commandName);
         if (!cmd)
