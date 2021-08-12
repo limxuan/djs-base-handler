@@ -19,7 +19,7 @@ module.exports = async (client) => {
             const properties = { directory, ...file };
             client.commands.set(file.name, properties);
             file.aliases?.forEach((alias) => {
-                client.commands.set(alias, properties)
+                client.aliases.set(alias, file.name)
             })
         }
     });
