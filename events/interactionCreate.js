@@ -3,7 +3,11 @@ const client = require("../index");
 client.on("interactionCreate", async (interaction) => {
     // Slash Command Handling
     if (interaction.isCommand()) {
-        await interaction.deferReply({ ephemeral: false }).catch(() => {});
+        
+        const ephlist = require('../../ephemeral.json');
+        let isEph = ephlist.includes(interaction.commandName)
+    
+        await interaction.deferReply({ ephemeral: isEph }).catch(() => {});
 
         const cmd = client.slashCommands.get(interaction.commandName);
         if (!cmd)
