@@ -8,7 +8,6 @@ module.exports = client;
 // Global Variables
 client.commands = new Collection();
 client.slashCommands = new Collection();
-client.aliases = new Collection();
 client.config = require("./config.json");
 
 // Initializing the project
