@@ -13,7 +13,7 @@ client.on("messageCreate", async (message) => {
         .trim()
         .split(" ");
 
-    const command = client.commands.get(cmd.toLowerCase()) || client.commands.find(cmd => cmd.aliases?.includes(cmd.toLowerCase()));
+    const command = client.commands.get(cmd.toLowerCase()) || client.commands.find(c => c.aliases?.includes(cmd.toLowerCase()));
 
     if (!command) return;
     await command.run(client, message, args);
