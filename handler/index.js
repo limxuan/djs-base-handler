@@ -35,6 +35,8 @@ module.exports = async (client) => {
         const file = require(value);
         if (!file?.name) return;
         client.slashCommands.set(file.name, file);
+
+        if(['MESSAGE', "USER"].includes(value.type)) delete value.description;
         arrayOfSlashCommands.push(file);
     });
     client.on("ready", async () => {
