@@ -1,6 +1,8 @@
 const { glob } = require("glob");
 const { promisify } = require("util");
 const { Client } = require("discord.js");
+const { mongooseConnectionString } = require("../config.json");
+const mongoose = require("mongoose");
 
 const globPromise = promisify(glob);
 
@@ -8,6 +10,14 @@ const globPromise = promisify(glob);
  * @param {Client} client
  */
 module.exports = async (client) => {
+    // mongoose
+    if (!mongooseConnectionString) return;
+
+    mongoose.connect(mongooseConnectionString, {
+        useFindAndModify: true,
+        useUnifiedTopology: true,
+    });
+
     // Commands
     const commandFiles = await globPromise(`${process.cwd()}/commands/**/*.js`);
     commandFiles.map((value) => {
