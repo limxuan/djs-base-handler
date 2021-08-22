@@ -10,14 +10,6 @@ const globPromise = promisify(glob);
  * @param {Client} client
  */
 module.exports = async (client) => {
-    // mongoose
-    if (!mongooseConnectionString) return;
-
-    mongoose.connect(mongooseConnectionString, {
-        useFindAndModify: true,
-        useUnifiedTopology: true,
-    });
-
     // Commands
     const commandFiles = await globPromise(`${process.cwd()}/commands/**/*.js`);
     commandFiles.map((value) => {
@@ -57,5 +49,13 @@ module.exports = async (client) => {
 
         // Register for all the guilds the bot is in
         // await client.application.commands.set(arrayOfSlashCommands);
+    });
+
+    // mongoose
+    if (!mongooseConnectionString) return;
+
+    mongoose.connect(mongooseConnectionString, {
+        useFindAndModify: true,
+        useUnifiedTopology: true,
     });
 };
