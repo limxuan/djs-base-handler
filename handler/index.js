@@ -57,5 +57,6 @@ module.exports = async (client) => {
     mongoose.connect(mongooseConnectionString, {
         useFindAndModify: true,
         useUnifiedTopology: true,
-    });
+        useNewUrlParser: true,
+    }).then(() => console.log('Connected to mongodb'));
 };
