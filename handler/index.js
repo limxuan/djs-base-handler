@@ -55,9 +55,5 @@ module.exports = async (client) => {
     const { mongooseConnectionString } = require('../config.json')
     if (!mongooseConnectionString) return;
 
-    mongoose.connect(mongooseConnectionString, {
-        useFindAndModify: true,
-        useUnifiedTopology: true,
-        useNewUrlParser: true,
-    }).then(() => console.log('Connected to mongodb'));
+    mongoose.connect(mongooseConnectionString).then(() => console.log('Connected to mongodb'));
 };
