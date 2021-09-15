@@ -1,7 +1,6 @@
 const { glob } = require("glob");
 const { promisify } = require("util");
 const { Client } = require("discord.js");
-const { mongooseConnectionString } = require("../config.json");
 const mongoose = require("mongoose");
 
 const globPromise = promisify(glob);
