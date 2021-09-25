@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { Client, Collection } = require("discord.js");
 
 const client = new Client({
@@ -13,4 +14,4 @@ client.config = require("./config.json");
 // Initializing the project
 require("./handler")(client);
 
-client.login(client.config.token);
+client.login(process.env.TOKEN);
