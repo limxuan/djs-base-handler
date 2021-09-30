@@ -11,7 +11,7 @@ client.on("messageCreate", async (message) => {
     const [cmd, ...args] = message.content
         .slice(client.config.prefix.length)
         .trim()
-        .split(" ");
+        .split(/ +/g);
 
     const command = client.commands.get(cmd.toLowerCase()) || client.commands.find(c => c.aliases?.includes(cmd.toLowerCase()));
 
