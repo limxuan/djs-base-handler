@@ -5,8 +5,7 @@ client.on("messageCreate", async (message) => {
         message.author.bot ||
         !message.guild ||
         !message.content.toLowerCase().startsWith(client.config.prefix)
-    )
-        return;
+    ) return;
 
     const [cmd, ...args] = message.content
         .slice(client.config.prefix.length)
