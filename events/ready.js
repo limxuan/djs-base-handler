@@ -1,5 +1,5 @@
 const client = require("../index");
 
 client.on("ready", () =>
-    console.log(`${client.user.tag} is up and ready to go!`)
+    console.log(`--------------------------------\n${client.user.tag} is online!\n${client.user.tag} is in${client.guilds.cache.size} guilds\n--------------------------------`)
 );
