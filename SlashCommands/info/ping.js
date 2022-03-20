@@ -3,6 +3,7 @@ const { Client, CommandInteraction } = require("discord.js");
 module.exports = {
     name: "ping",
     description: "returns websocket ping",
+    memberPermissions: ['ADMINISTRATOR']
     type: 'CHAT_INPUT',
     /**
      *
