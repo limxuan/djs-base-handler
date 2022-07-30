@@ -1,9 +1,9 @@
-const { Client, CommandInteraction } = require("discord.js");
+const { Client, CommandInteraction, ApplicationCommandOptionType } = require("discord.js");
 
 module.exports = {
     name: "ping",
     description: "returns websocket ping",
-    type: 'CHAT_INPUT',
+    type: ApplicationCommandOptionType.ChatInput,
     /**
      *
      * @param {Client} client

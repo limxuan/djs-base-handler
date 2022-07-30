@@ -1,4 +1,5 @@
 const client = require("../index");
+const { ApplicationCommandOptionType, InteractionType } = require('discord.js')
 
 client.on("interactionCreate", async (interaction) => {
     // Slash Command Handling
@@ -12,7 +13,7 @@ client.on("interactionCreate", async (interaction) => {
         const args = [];
 
         for (let option of interaction.options.data) {
-            if (option.type === "SUB_COMMAND") {
+            if (option.type === ApplicationCommandOptionType.Subcommand) {
                 if (option.name) args.push(option.name);
                 option.options?.forEach((x) => {
                     if (x.value) args.push(x.value);
@@ -25,7 +26,7 @@ client.on("interactionCreate", async (interaction) => {
     }
 
     // Context Menu Handling
-    if (interaction.isContextMenu()) {
+    if (interaction.isContextMenuCommand()) {
         await interaction.deferReply({ ephemeral: false });
         const command = client.slashCommands.get(interaction.commandName);
         if (command) command.run(client, interaction);
